@@ -73,3 +73,25 @@ Return the result as a string.
 API Call: <http://localhost:3000/calculate-tax?cartTotal=3600>
 
 Expected Output: 180
+
+### Endpoint 4 : Estimate delivery time based on shipping method
+
+Create an endpoint that takes a shippingMethod and distance as a query parameter and returns the number of days for delivering the package.
+
+Write an Express code snippet.
+
+Declare an endpoint /estimate-delivery using the get keyword.
+
+Declare 2 variables shippingMethod and distance as inputs.
+
+Parse the distance input as float to calculate the delivery time based on the distance.
+
+Return the result as a string.
+
+If the shippingMethod = Standard, the delivery days will be 1 day per 50 kms.
+
+If the shippingMethod = Express, the delivery days will be 1 day per 100 kms.
+
+API Call: <http://localhost:3000/estimate-delivery?shippingMethod=express&distance=600>
+
+Expected Output: 6

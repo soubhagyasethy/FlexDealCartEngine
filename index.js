@@ -53,6 +53,27 @@ app.get("/calculate-tax", (req, res) => {
   res.send(calculateTax(cartTotal).toString());
 })
 
+// Endpoint 4 : Estimate delivery time based on shipping method
+
+function estimatedDelivery(shippingMethod, distance) {
+  let deliveryTime;
+
+  if(shippingMethod === "standard") {
+    deliveryTime = distance / 50;
+    return deliveryTime;
+  } else {
+    deliveryTime = distance / 100;
+    return deliveryTime;
+  }
+}
+
+app.get("/estimate-delivery", (req, res) => {
+  let shippingMethod = req.query.shippingMethod;
+  let distance = parseFloat(req.query.distance);
+  res.send(estimatedDelivery(shippingMethod, distance).toString());
+})
+
+
 
 
 app.listen(port, () => {
