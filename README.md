@@ -15,3 +15,21 @@ Now, they already have built the frontend of the application showing the cart pa
 ## Objective
 
 FlipDeal has given you the project to create the APIs on the backend for their “Cart Page”.
+
+### Endpoint 1: Calculate the total price of items in the cart
+
+Create an endpoint that takes a newItemPrice and cartTotal as a query parameter and returns total cart value.
+
+Write an Express code snippet.
+
+Declare an endpoint cart-total using the get keyword.
+
+Declare two variables newItemPrice and cartTotalto take the input.
+
+Parse the input as a float to calculate the total cart price.
+
+Return the result as a string.
+
+API Call: <http://localhost:3000/cart-total?newItemPrice=1200&cartTotal=0>
+
+Expected Output: 1200
