@@ -33,3 +33,25 @@ Return the result as a string.
 API Call: <http://localhost:3000/cart-total?newItemPrice=1200&cartTotal=0>
 
 Expected Output: 1200
+
+### Endpoint 2 : Apply a discount based on membership status
+
+Create an endpoint that takes a cartTotal and isMember as a query parameter and returns final price after applying the discount.
+
+Write an Express code snippet.
+
+Declare an endpoint /membership-discount using the get keyword.
+
+Declare two variables cartTotal and isMember to take the input.
+
+Parse the cartTotal as a float to calculate the total cart value.
+
+Return the result as a string.
+
+If the Membership status = true, then the discount percentage is applied
+
+If the Membership status = false, no discount is applied
+
+API Call: <http://localhost:3000/membership-discount?cartTotal=3600&isMember=true>
+
+Expected Output: 3240

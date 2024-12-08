@@ -1,5 +1,5 @@
 const express = require('express');
-const { resolve } = require('path');
+const { resolve, parse } = require('path');
 const cors = require("cors");
 
 const app = express();
@@ -22,6 +22,27 @@ app.get("/cart-total", (req, res) => {
 
   res.send(result.toString());
 })
+
+// Endpoint 2 : Apply a discount based on membership status
+
+function membershipDiscount(cartTotal, isMember){
+  if(isMember === "true"){
+    let finalPrice = cartTotal - (cartTotal * (discountPercentage / 100));
+    return finalPrice;
+  } else {
+    return cartTotal;
+  }
+}
+
+app.get("/membership-discount", (req, res) => {
+  let cartTotal = parseFloat(req.query.cartTotal);
+  let isMember = req.query.isMember;
+  res.send(membershipDiscount(cartTotal, isMember).toString());
+})
+
+
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
