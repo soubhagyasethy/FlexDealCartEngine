@@ -86,6 +86,13 @@ app.get("/shipping-cost", (req, res) => {
   res.send(shippingCost(weight, distance).toString())
 })
 
+// Endpoint 6 : Calculate loyalty points earned from a purchase
+
+app.get("/loyalty-points", (req, res) => {
+  let purchaseAmount = parseFloat(req.query.purchaseAmount);
+  let result = purchaseAmount * loayltyRate;
+  res.send(result.toString())
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

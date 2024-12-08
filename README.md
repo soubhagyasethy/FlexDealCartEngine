@@ -117,3 +117,21 @@ weight * distance * 0.1 where weight is 2 kgs.
 API Call: <http://localhost:3000/shipping-cost?weight=2&distance=600>
 
 Expected Output: 120
+
+### Endpoint 6 : Calculate loyalty points earned from a purchase
+
+Create an endpoint that takes purchaseAmount as query parameters and returns the loyalty points.
+
+Write an Express code snippet.
+
+Declare an endpoint /loyalty-points using the get keyword.
+
+Declare a variable purchaseAmount as an input.
+
+Parse the purchaseAmount input as float to calculate the loyalty points based on the purchase amount.
+
+Return the result as a string.
+
+API Call: <http://localhost:3000/loyalty-points?purchaseAmount=3600>
+
+Expected Output: 7200
