@@ -55,3 +55,21 @@ If the Membership status = false, no discount is applied
 API Call: <http://localhost:3000/membership-discount?cartTotal=3600&isMember=true>
 
 Expected Output: 3240
+
+### Endpoint 3 : Calculate tax on the cart total
+
+Create an endpoint that takes a cartTotal as a query parameter and returns the tax applied on the Cart Total.
+
+Write an Express code snippet.
+
+Declare an endpoint /calculate-tax using the get keyword.
+
+Declare a variable cartTotal as input.
+
+Parse the cartTotal input as float to calculate the cart amount after applying the tax rate.
+
+Return the result as a string.
+
+API Call: <http://localhost:3000/calculate-tax?cartTotal=3600>
+
+Expected Output: 180
