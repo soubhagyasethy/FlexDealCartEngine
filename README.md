@@ -95,3 +95,25 @@ If the shippingMethod = Express, the delivery days will be 1 day per 100 kms.
 API Call: <http://localhost:3000/estimate-delivery?shippingMethod=express&distance=600>
 
 Expected Output: 6
+
+### Endpoint 5 : Calculate the shipping cost based on weight and distance
+
+Create an endpoint that takes weight and distance as query parameters and returns the shipping cost of the packages.
+
+Write an Express code snippet.
+
+Declare an endpoint /shipping-cost using the get keyword.
+
+Declare 2 variables weight and distance as inputs.
+
+Parse the weight and distance input as float to calculate the price based on the distance.
+
+Return the result as a string.
+
+Note: The formula to calculate shipping cost would be:
+
+weight * distance * 0.1 where weight is 2 kgs.
+
+API Call: <http://localhost:3000/shipping-cost?weight=2&distance=600>
+
+Expected Output: 120

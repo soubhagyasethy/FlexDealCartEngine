@@ -73,7 +73,18 @@ app.get("/estimate-delivery", (req, res) => {
   res.send(estimatedDelivery(shippingMethod, distance).toString());
 })
 
+// Endpoint 5 : Calculate the shipping cost based on weight and distance
 
+function shippingCost(weight, distance) {
+  let result = weight * distance * 0.1;
+  return result;
+}
+
+app.get("/shipping-cost", (req, res) => {
+  let weight = parseFloat(req.query.weight);
+  let distance = parseFloat(req.query.distance);
+  res.send(shippingCost(weight, distance).toString())
+})
 
 
 app.listen(port, () => {
