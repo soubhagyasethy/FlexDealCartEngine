@@ -1,9 +1,9 @@
-# FlipDeal
+# FlexDealCartEngine
 - Hosted URL: https://flip-deal-snowy.vercel.app/
 
 ## Introduction
 
-FlipDeal is an eCommerce company that has recently started dealing with multiple fitness products. Currently, they are starting small with 3 items in their cart:
+FlexDealCartEngine is an eCommerce company that has recently started dealing with multiple fitness products. Currently, they are starting small with 3 items in their cart:
 
 - Shoes
 - Bag
@@ -15,7 +15,7 @@ Now, they already have built the frontend of the application showing the cart pa
 
 ## Objective
 
-FlipDeal has given you the project to create the APIs on the backend for their “Cart Page”.
+FlexDealCartEngine has given you the project to create the APIs on the backend for their “Cart Page”.
 
 ### Endpoint 1: Calculate the total price of items in the cart
 
