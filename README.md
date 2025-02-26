@@ -1,138 +1,188 @@
-# FlexDealCartEngine
-- Hosted URL: https://flip-deal-snowy.vercel.app/
+# 🌐 FlexDealCartEngine
 
-## Introduction
+### Hosted URL: [FlexDealCartEngine](https://flip-deal-snowy.vercel.app/)
 
-FlexDealCartEngine is an eCommerce company that has recently started dealing with multiple fitness products. Currently, they are starting small with 3 items in their cart:
+---
 
-- Shoes
-- Bag
-- Jacket
+## 📌 Introduction
 
-They have also launched a “Prime Membership” program where if you are the member at their platform, you get good discounts on the products.
+**FlexDealCartEngine** is an emerging eCommerce company specializing in fitness products. Currently, their cart system features **3 items**:
 
-Now, they already have built the frontend of the application showing the cart page with product details, images, and other options. But now they want a backend developer who can create the APIs for various cart actions and work with frontend.
+- 🥿 Shoes
+- 🎒 Bag
+- 🧥 Jacket
 
-## Objective
+They offer a **Prime Membership** program, granting exclusive discounts to members.
 
-FlexDealCartEngine has given you the project to create the APIs on the backend for their “Cart Page”.
+This project aims to build the **backend APIs** required for various cart functionalities that will integrate seamlessly with their existing frontend application.
 
-### Endpoint 1: Calculate the total price of items in the cart
+---
 
-Create an endpoint that takes a newItemPrice and cartTotal as a query parameter and returns total cart value.
+## 🎯 Objective
 
-Write an Express code snippet.
+Develop APIs to handle cart operations with the following functionalities:
 
-Declare an endpoint cart-total using the get keyword.
+---
 
-Declare two variables newItemPrice and cartTotalto take the input.
+### 🔑 Endpoint 1: Calculate Total Price
 
-Parse the input as a float to calculate the total cart price.
+**URL:** `/cart-total`
 
-Return the result as a string.
+**Method:** `GET`
 
-API Call: <http://localhost:3000/cart-total?newItemPrice=1200&cartTotal=0>
+**Query Parameters:**
+- `newItemPrice` (float)
+- `cartTotal` (float)
 
-Expected Output: 1200
+✅ This API calculates the total cart value by adding the `newItemPrice` to the `cartTotal`.
 
-### Endpoint 2 : Apply a discount based on membership status
+**Example API Call:**
+```url
+http://localhost:3000/cart-total?newItemPrice=1200&cartTotal=0
+```
+**Expected Output:**
+```json
+1200
+```
+---
 
-Create an endpoint that takes a cartTotal and isMember as a query parameter and returns final price after applying the discount.
+### 🎯 Endpoint 2: Apply Membership Discount
 
-Write an Express code snippet.
+**URL:** `/membership-discount`
 
-Declare an endpoint /membership-discount using the get keyword.
+**Method:** `GET`
 
-Declare two variables cartTotal and isMember to take the input.
+**Query Parameters:**
+- `cartTotal` (float)
+- `isMember` (boolean)
 
-Parse the cartTotal as a float to calculate the total cart value.
+✅ This API applies a **10% discount** if the user is a Prime Member.
 
-Return the result as a string.
+**Example API Call:**
+```url
+http://localhost:3000/membership-discount?cartTotal=3600&isMember=true
+```
+**Expected Output:**
+```json
+3240
+```
+---
 
-If the Membership status = true, then the discount percentage is applied
+### 🧾 Endpoint 3: Calculate Tax
 
-If the Membership status = false, no discount is applied
+**URL:** `/calculate-tax`
 
-API Call: <http://localhost:3000/membership-discount?cartTotal=3600&isMember=true>
+**Method:** `GET`
 
-Expected Output: 3240
+**Query Parameters:**
+- `cartTotal` (float)
 
-### Endpoint 3 : Calculate tax on the cart total
+✅ This API applies a **5% tax** on the cart total.
 
-Create an endpoint that takes a cartTotal as a query parameter and returns the tax applied on the Cart Total.
+**Example API Call:**
+```url
+http://localhost:3000/calculate-tax?cartTotal=3600
+```
+**Expected Output:**
+```json
+180
+```
+---
 
-Write an Express code snippet.
+### 🚚 Endpoint 4: Estimate Delivery Time
 
-Declare an endpoint /calculate-tax using the get keyword.
+**URL:** `/estimate-delivery`
 
-Declare a variable cartTotal as input.
+**Method:** `GET`
 
-Parse the cartTotal input as float to calculate the cart amount after applying the tax rate.
+**Query Parameters:**
+- `shippingMethod` (string: `Standard` or `Express`)
+- `distance` (float)
 
-Return the result as a string.
+✅ This API estimates delivery time:
+- **Standard:** 1 day per 50 kms
+- **Express:** 1 day per 100 kms
 
-API Call: <http://localhost:3000/calculate-tax?cartTotal=3600>
+**Example API Call:**
+```url
+http://localhost:3000/estimate-delivery?shippingMethod=express&distance=600
+```
+**Expected Output:**
+```json
+6
+```
+---
 
-Expected Output: 180
+### 💰 Endpoint 5: Shipping Cost Calculation
 
-### Endpoint 4 : Estimate delivery time based on shipping method
+**URL:** `/shipping-cost`
 
-Create an endpoint that takes a shippingMethod and distance as a query parameter and returns the number of days for delivering the package.
+**Method:** `GET`
 
-Write an Express code snippet.
+**Query Parameters:**
+- `weight` (float)
+- `distance` (float)
 
-Declare an endpoint /estimate-delivery using the get keyword.
+✅ This API calculates shipping cost using the formula:
+```
+shippingCost = weight * distance * 0.1
+```
 
-Declare 2 variables shippingMethod and distance as inputs.
+**Example API Call:**
+```url
+http://localhost:3000/shipping-cost?weight=2&distance=600
+```
+**Expected Output:**
+```json
+120
+```
+---
 
-Parse the distance input as float to calculate the delivery time based on the distance.
+### ⭐ Endpoint 6: Loyalty Points Calculation
 
-Return the result as a string.
+**URL:** `/loyalty-points`
 
-If the shippingMethod = Standard, the delivery days will be 1 day per 50 kms.
+**Method:** `GET`
 
-If the shippingMethod = Express, the delivery days will be 1 day per 100 kms.
+**Query Parameters:**
+- `purchaseAmount` (float)
 
-API Call: <http://localhost:3000/estimate-delivery?shippingMethod=express&distance=600>
+✅ This API calculates **2x loyalty points** for every purchase.
 
-Expected Output: 6
+**Example API Call:**
+```url
+http://localhost:3000/loyalty-points?purchaseAmount=3600
+```
+**Expected Output:**
+```json
+7200
+```
+---
 
-### Endpoint 5 : Calculate the shipping cost based on weight and distance
+## ⚙️ Tech Stack
+- Node.js
+- Express.js
+- JavaScript (ES6)
 
-Create an endpoint that takes weight and distance as query parameters and returns the shipping cost of the packages.
+---
 
-Write an Express code snippet.
+## 📄 Project Setup
 
-Declare an endpoint /shipping-cost using the get keyword.
+1. Clone the repository.
+2. Install dependencies:
+```bash
+npm install
+```
+3. Run the server:
+```bash
+node index.js
+```
 
-Declare 2 variables weight and distance as inputs.
+---
 
-Parse the weight and distance input as float to calculate the price based on the distance.
+## 💪 Conclusion
 
-Return the result as a string.
+FlexDealCartEngine is paving the way for a more streamlined fitness shopping experience with robust backend APIs supporting cart management, membership benefits, and seamless delivery logistics.
 
-Note: The formula to calculate shipping cost would be:
+🚀 Happy Coding!
 
-weight * distance * 0.1 where weight is 2 kgs.
-
-API Call: <http://localhost:3000/shipping-cost?weight=2&distance=600>
-
-Expected Output: 120
-
-### Endpoint 6 : Calculate loyalty points earned from a purchase
-
-Create an endpoint that takes purchaseAmount as query parameters and returns the loyalty points.
-
-Write an Express code snippet.
-
-Declare an endpoint /loyalty-points using the get keyword.
-
-Declare a variable purchaseAmount as an input.
-
-Parse the purchaseAmount input as float to calculate the loyalty points based on the purchase amount.
-
-Return the result as a string.
-
-API Call: <http://localhost:3000/loyalty-points?purchaseAmount=3600>
-
-Expected Output: 7200
